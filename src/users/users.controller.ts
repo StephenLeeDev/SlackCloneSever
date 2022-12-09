@@ -4,6 +4,7 @@ import { JoinRequestDto } from './dto/join.request.dto';
 import { UsersService } from './users.service';
 import { ApiTags } from '@nestjs/swagger';
 import { UserDto } from 'src/common/dto/user.dto';
+import { User } from 'src/common/dto/user.decorator';
 
 @ApiTags('User')
 @Controller('api/users')
@@ -21,8 +22,8 @@ export class UsersController {
     })
     @ApiOperation({ summary: 'Get My Info'})
     @Get()
-    getUsers(@Req() req) {
-        return req.user;
+    getUsers(@User() user) {
+        return user;
     }
     
     @ApiOperation({ summary: 'Sign Up'})
@@ -33,8 +34,8 @@ export class UsersController {
     
     @ApiOperation({ summary: 'Sign In'})
     @Post('login')
-    logIn(@Req() req) {
-        return req.user;
+    logIn(@User() user) {
+        return user;
     }
     
     @ApiOperation({ summary: 'Sign Out'})
