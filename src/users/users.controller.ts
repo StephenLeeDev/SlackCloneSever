@@ -4,7 +4,7 @@ import { JoinRequestDto } from './dto/join.request.dto';
 import { UsersService } from './users.service';
 import { ApiTags } from '@nestjs/swagger';
 import { UserDto } from 'src/common/dto/user.dto';
-import { User } from 'src/common/dto/user.decorator';
+import { User } from 'src/common/decorators/user.decorator';
 
 @ApiTags('User')
 @Controller('api/users')
